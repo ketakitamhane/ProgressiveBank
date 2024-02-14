@@ -3,7 +3,14 @@
       
   
       <label for="customer_id">Customer ID:</label>
-      <input type="text" id="customer_id" formControlName="customer_id" />
+      <input type="text" id="customer_id" name="customer_id" 
+      formControlName="customer_id" class="form-group" [(ngModel)]="formModel.customer_id">
+      <div *ngIf="accountForm.controls['customer_id'].invalid 
+      && (accountForm.controls['customer_id'].touched || accountForm.controls['customer_id'].dirty)" class="ng-dirty">
+      <span *ngIf="accountForm.controls['customer_id'].error">
+        <span te
+      </span>
+    </div>
   
       <label for="balance">Balance:</label>
       <input type="text" id="balance" formControlName="balance" />
