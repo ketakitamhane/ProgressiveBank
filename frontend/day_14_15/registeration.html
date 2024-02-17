@@ -1,13 +1,126 @@
-<!-- Create Registeration form with input field  that has following id
-registerName: this will represent the person name
-registerEmail: this will represent the email id 
-registerUsername: this will represent the  username 
-registerPassword: this will represent the password
-create a button and onclick you call function register() from validation.js
+<!DOCTYPE html>
+<html lang="en">
 
-The form will contain the following validation rules ;
-Every field is required 
-registerUsername: it will not contain any special characters 
-registerEmail: it will be a valid email
-registerPassword: it will be of atleast 8 characters 
--->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login and Registration</title>
+        <link rel="stylesheet"
+            href="css/bootstrap.css">
+        
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerName">Name:</label>
+                            <input type="text" class="form-control"
+                                id="registerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email:</label>
+                            <input type="email" class="form-control"
+                                id="registerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerUsername">Username:</label>
+                            <input type="text" class="form-control"
+                                id="registerUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password:</label>
+                            <input type="password" class="form-control"
+                                id="registerPassword" required>
+                        </div>
+                        <button type="button" class="btn btn-success"
+                            onclick="register()">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
+        <script src="js/validation.js"></script>
+
+    </body>
+
+</html>
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+============================================================================================================================
+
+
+
+============================================================================================================================
+
+
+
+Day 16
+
+1. Accountts.ts
+
+export class AccountTS {
+    accountId?: string;
+    customerId: string;
+    balance: number;
+    constructor( customerId: string, balance: number,accountId?:string,) {
+        this.accountId = accountId;
+        this.customerId = customerId;
+        this.balance = balance;
+    }
+
+    displayInfo() {
+        console.log(`Account ID: ${this.accountId}`);
+        console.log(`Customer ID: ${this.customerId}`);
+        console.log(`Balance: ${this.balance.toFixed(2)}`);
+    }
+}
+
+const account = new AccountTS("1",1000.00,"1");
+account.displayInfo();
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+2. Customerts.ts
+
+export class CustomerTS {
+  customerId?: string;
+  name: string;
+  email: string;
+  password:string;
+  username:string;
+  role?:string;
+
+    constructor(name: string, email: string, username: string, password: string, role: string, customerId?:string) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    displayInfo() {
+        console.log(`Customer ID: ${this.customerId}`);
+        console.log(`Name: ${this.name}`);
+        console.log(`Email: ${this.email}`);
+        console.log(`Username: ${this.username}`);
+        console.log(`Password: ${this.password}`);
+        console.log(`Role: ${this.role}`);
+        console.log("------");
+    }
+}
+
+
+// Example Usage
+const customer = new CustomerTS( "John Doe", "john@example.com", "john_doe", "password123", "User","1");
+customer.displayInfo();
